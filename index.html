@@ -15,11 +15,11 @@
       overflow-x: hidden;
     }
 
-    /* 🌸 Animated background */
+    /* 🌸 Soft animated background */
     .bg-animation {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: -3;
       background:
         radial-gradient(circle at 20% 30%, rgba(255,182,193,0.25), transparent 40%),
         radial-gradient(circle at 80% 20%, rgba(255,215,186,0.25), transparent 40%),
@@ -36,9 +36,60 @@
       }
     }
 
+    /* 🌸 Falling petals */
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .petal {
+      position: absolute;
+      top: -10%;
+      width: 18px;
+      height: 18px;
+      background: rgba(255,182,193, 0.85);
+      border-radius: 60% 40% 60% 40%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    .petal:nth-child(odd) {
+      background: rgba(255,200,200, 0.85);
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateX(0) rotate(0deg);
+        top: -10%;
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateX(60px) rotate(360deg);
+        top: 110%;
+        opacity: 0.3;
+      }
+    }
+
+    /* Different speeds & positions */
+    .petal:nth-child(1) { left: 5%; animation-duration: 12s; }
+    .petal:nth-child(2) { left: 15%; animation-duration: 14s; }
+    .petal:nth-child(3) { left: 25%; animation-duration: 10s; }
+    .petal:nth-child(4) { left: 35%; animation-duration: 16s; }
+    .petal:nth-child(5) { left: 45%; animation-duration: 13s; }
+    .petal:nth-child(6) { left: 55%; animation-duration: 15s; }
+    .petal:nth-child(7) { left: 65%; animation-duration: 11s; }
+    .petal:nth-child(8) { left: 75%; animation-duration: 17s; }
+    .petal:nth-child(9) { left: 85%; animation-duration: 12s; }
+    .petal:nth-child(10){ left: 95%; animation-duration: 14s; }
+
     .container {
       max-width: 540px;
       margin: auto;
+      position: relative;
+      z-index: 1;
     }
 
     .header {
@@ -61,124 +112,4 @@
     .card {
       background: #ffffff;
       border-radius: 18px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.14);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 14px 28px rgba(139,29,29,0.25);
-    }
-
-    .card h2 {
-      margin: 0;
-      color: #b7791f;
-      font-size: 22px;
-    }
-
-    .date {
-      margin-top: 6px;
-      font-size: 16px;
-      color: #333;
-    }
-
-    .venue {
-      margin: 8px 0 14px;
-      font-size: 16px;
-      color: #555;
-    }
-
-    .map-btn {
-      display: inline-block;
-      padding: 11px 20px;
-      background: #8b1d1d;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 25px;
-      font-weight: bold;
-      font-size: 15px;
-    }
-
-    .map-btn:hover {
-      background: #6f1414;
-    }
-
-    footer {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 14px;
-      color: #777;
-    }
-  </style>
-</head>
-
-<body>
-  <!-- Animated Background -->
-  <div class="bg-animation"></div>
-
-  <div class="container">
-
-    <div class="header">
-      <h1>Amit & Saumya</h1>
-      <p>Wedding Celebrations</p>
-      <p>With love & blessings</p>
-    </div>
-
-    <div class="card">
-      <h2>Matkor</h2>
-      <div class="date">📅 16 February 2026</div>
-      <div class="venue">📍 Darbhanga</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/YWquhC6tQNWrAjGP8" target="_blank">Open Location</a>
-    </div>
-
-    <div class="card">
-      <h2>Grithdhari</h2>
-      <div class="date">📅 17 February 2026</div>
-      <div class="venue">📍 Darbhanga</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/YWquhC6tQNWrAjGP8" target="_blank">Open Location</a>
-    </div>
-
-    <div class="card">
-      <h2>Tilak</h2>
-      <div class="date">📅 19 February 2026</div>
-      <div class="venue">📍 Muzaffarpur</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/HVk9Z4xpvfH82du67" target="_blank">Open Location</a>
-    </div>
-
-    <div class="card">
-      <h2>Haldi & Mehndi</h2>
-      <div class="date">📅 21 February 2026</div>
-      <div class="venue">📍 Hotel Bihari By Nature, Muzaffarpur</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/4MHQRdmjw29CRzmN9" target="_blank">Open Location</a>
-    </div>
-
-    <div class="card">
-      <h2>Shaadi (Barat Niklegi)</h2>
-      <div class="date">📅 22 February 2026</div>
-      <div class="venue">📍 Hotel Bihari By Nature, Muzaffarpur</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/4MHQRdmjw29CRzmN9" target="_blank">Open Location</a>
-    </div>
-
-    <div class="card">
-      <h2>Shaadi</h2>
-      <div class="date">📅 22 February 2026</div>
-      <div class="venue">📍 C.R.T Palace, Sitamarhi</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/e5cUSFBn6HhECGD87" target="_blank">Open Location</a>
-    </div>
-
-    <div class="card">
-      <h2>Reception</h2>
-      <div class="date">📅 23 February 2026</div>
-      <div class="venue">📍 Hotel Bihari By Nature, Muzaffarpur</div>
-      <a class="map-btn" href="https://maps.app.goo.gl/4MHQRdmjw29CRzmN9" target="_blank">Open Location</a>
-    </div>
-
-    <footer>
-      We look forward to celebrating with you 💐
-    </footer>
-
-  </div>
-</body>
-</html>
+      pa
